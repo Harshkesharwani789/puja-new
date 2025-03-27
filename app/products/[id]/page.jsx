@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import Image from "next/image"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import {
   Heart,
   ShoppingCart,
@@ -14,16 +14,21 @@ import {
   RotateCcw,
   ChevronRight,
   ChevronLeft,
-} from "lucide-react"
+} from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { useCart } from "@/hooks/use-cart"
-import { useWishlist } from "@/hooks/use-wishlist"
-import { useToast } from "@/hooks/use-toast"
-import { ProductCard } from "@/components/product-card"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useCart } from "@/hooks/use-cart";
+import { useWishlist } from "@/hooks/use-wishlist";
+import { useToast } from "@/hooks/use-toast";
+import { ProductCard } from "@/components/product-card";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 // This would normally come from a database
 const productsData = [
@@ -31,11 +36,13 @@ const productsData = [
     id: "1",
     title: "Brass Ganesh Idol",
     price: 1299,
-    image: "/placeholder.svg?height=300&width=300",
+    image:
+      "https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D",
     category: "Idols & Statues",
     description:
       "This beautifully crafted brass Ganesh idol is perfect for your home temple or as a decorative piece. Made with high-quality brass and intricate detailing, this idol represents Lord Ganesha, the remover of obstacles and the god of new beginnings.",
-    specifications: "Material: Brass\nHeight: 8 inches\nWidth: 5 inches\nWeight: 1.2 kg",
+    specifications:
+      "Material: Brass\nHeight: 8 inches\nWidth: 5 inches\nWeight: 1.2 kg",
     care: "Clean with a soft dry cloth. Avoid using water or harsh chemicals.",
     rating: 4.9,
     reviews: 124,
@@ -44,7 +51,8 @@ const productsData = [
     id: "2",
     title: "Silver Pooja Thali Set",
     price: 2499,
-    image: "/placeholder.svg?height=300&width=300",
+    image:
+      "https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D",
     category: "Pooja Thali Sets",
     description:
       "This elegant silver pooja thali set includes all the essential items needed for daily rituals and special occasions. The set features a beautifully designed thali with intricate patterns, along with matching accessories.",
@@ -58,7 +66,8 @@ const productsData = [
     id: "3",
     title: "Decorative Diya Set",
     price: 599,
-    image: "/placeholder.svg?height=300&width=300",
+    image:
+      "https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D",
     category: "Diyas & Lamps",
     description:
       "Brighten up your home with this beautiful set of decorative diyas. Perfect for Diwali celebrations or to add a warm glow to your home decor throughout the year. Each diya is handcrafted with attention to detail.",
@@ -72,7 +81,8 @@ const productsData = [
     id: "4",
     title: "Sandalwood Incense Sticks",
     price: 199,
-    image: "/placeholder.svg?height=300&width=300",
+    image:
+      "https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D",
     category: "Incense & Dhoop",
     description:
       "These premium sandalwood incense sticks provide a calming and spiritual atmosphere for meditation, yoga, or daily prayers. Made from natural sandalwood, these sticks burn evenly and release a soothing fragrance.",
@@ -82,7 +92,7 @@ const productsData = [
     rating: 4.8,
     reviews: 203,
   },
-]
+];
 
 // Sample reviews
 const sampleReviews = [
@@ -111,7 +121,8 @@ const sampleReviews = [
     rating: 5,
     date: "2023-08-30",
     title: "Perfect for my home temple",
-    comment: "Exactly what I was looking for. The size is perfect and the details are amazing.",
+    comment:
+      "Exactly what I was looking for. The size is perfect and the details are amazing.",
     verified: true,
   },
   {
@@ -120,27 +131,32 @@ const sampleReviews = [
     rating: 3,
     date: "2023-11-05",
     title: "Good but could be better",
-    comment: "The product is good but there were some minor imperfections. Customer service was helpful though.",
+    comment:
+      "The product is good but there were some minor imperfections. Customer service was helpful though.",
     verified: false,
   },
-]
+];
 
 // Related products
 const getRelatedProducts = (currentId, category) => {
-  return productsData.filter((product) => product.id !== currentId && product.category === category).slice(0, 4)
-}
+  return productsData
+    .filter(
+      (product) => product.id !== currentId && product.category === category
+    )
+    .slice(0, 4);
+};
 
 export default function ProductPage({ params }) {
-  const productId = params.id
-  const product = productsData.find((p) => p.id === productId)
+  const productId = params.id;
+  const product = productsData.find((p) => p.id === productId);
 
-  const [quantity, setQuantity] = useState(1)
-  const [activeImage, setActiveImage] = useState(0)
-  const { addToCart } = useCart()
-  const { addToWishlist, isInWishlist, removeFromWishlist } = useWishlist()
-  const [isWishlisted, setIsWishlisted] = useState(false)
-  const [addedToCart, setAddedToCart] = useState(false)
-  const { toast } = useToast()
+  const [quantity, setQuantity] = useState(1);
+  const [activeImage, setActiveImage] = useState(0);
+  const { addToCart } = useCart();
+  const { addToWishlist, isInWishlist, removeFromWishlist } = useWishlist();
+  const [isWishlisted, setIsWishlisted] = useState(false);
+  const [addedToCart, setAddedToCart] = useState(false);
+  const { toast } = useToast();
 
   // Product images (in a real app, these would come from the database)
   const productImages = [
@@ -148,31 +164,33 @@ export default function ProductPage({ params }) {
     "/placeholder.svg?height=600&width=600",
     "/placeholder.svg?height=600&width=600",
     "/placeholder.svg?height=600&width=600",
-  ]
+  ];
 
   useEffect(() => {
     if (isInWishlist) {
-      setIsWishlisted(isInWishlist(productId))
+      setIsWishlisted(isInWishlist(productId));
     }
-  }, [isInWishlist, productId])
+  }, [isInWishlist, productId]);
 
   if (!product) {
     return (
       <div className="container py-12 text-center">
         <h1 className="text-2xl font-bold mb-4">Product Not Found</h1>
-        <p className="mb-6">The product you are looking for does not exist or has been removed.</p>
+        <p className="mb-6">
+          The product you are looking for does not exist or has been removed.
+        </p>
         <Button asChild>
           <Link href="/categories">Continue Shopping</Link>
         </Button>
       </div>
-    )
+    );
   }
 
   const handleQuantityChange = (value) => {
     if (value >= 1) {
-      setQuantity(value)
+      setQuantity(value);
     }
-  }
+  };
 
   const handleAddToCart = () => {
     addToCart({
@@ -182,25 +200,25 @@ export default function ProductPage({ params }) {
       image: product.image,
       category: product.category,
       quantity,
-    })
+    });
 
-    setAddedToCart(true)
-    setTimeout(() => setAddedToCart(false), 2000)
+    setAddedToCart(true);
+    setTimeout(() => setAddedToCart(false), 2000);
 
     toast({
       title: "Added to cart",
       description: `${product.title} has been added to your cart.`,
-    })
-  }
+    });
+  };
 
   const handleWishlist = () => {
     if (isWishlisted) {
-      removeFromWishlist(product.id)
-      setIsWishlisted(false)
+      removeFromWishlist(product.id);
+      setIsWishlisted(false);
       toast({
         title: "Removed from wishlist",
         description: `${product.title} has been removed from your wishlist.`,
-      })
+      });
     } else {
       addToWishlist({
         id: product.id,
@@ -208,24 +226,26 @@ export default function ProductPage({ params }) {
         price: product.price,
         image: product.image,
         category: product.category,
-      })
-      setIsWishlisted(true)
+      });
+      setIsWishlisted(true);
       toast({
         title: "Added to wishlist",
         description: `${product.title} has been added to your wishlist.`,
-      })
+      });
     }
-  }
+  };
 
   const handleShare = () => {
-    navigator.clipboard.writeText(`Check out this amazing product: ${product.title} at PujaStore!`)
+    navigator.clipboard.writeText(
+      `Check out this amazing product: ${product.title} at PujaStore!`
+    );
     toast({
       title: "Link copied",
       description: "Product link copied to clipboard.",
-    })
-  }
+    });
+  };
 
-  const relatedProducts = getRelatedProducts(product.id, product.category)
+  const relatedProducts = getRelatedProducts(product.id, product.category);
 
   return (
     <div className="container py-12">
@@ -239,7 +259,10 @@ export default function ProductPage({ params }) {
         </Link>
         <span>/</span>
         <Link
-          href={`/categories/${product.category.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "")}`}
+          href={`/categories/${product.category
+            .toLowerCase()
+            .replace(/\s+/g, "-")
+            .replace(/&/g, "")}`}
           className="hover:text-primary"
         >
           {product.category}
@@ -263,7 +286,12 @@ export default function ProductPage({ params }) {
               variant="ghost"
               size="icon"
               className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white/90"
-              onClick={() => setActiveImage((activeImage - 1 + productImages.length) % productImages.length)}
+              onClick={() =>
+                setActiveImage(
+                  (activeImage - 1 + productImages.length) %
+                    productImages.length
+                )
+              }
             >
               <ChevronLeft className="h-5 w-5" />
             </Button>
@@ -272,7 +300,9 @@ export default function ProductPage({ params }) {
               variant="ghost"
               size="icon"
               className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white/90"
-              onClick={() => setActiveImage((activeImage + 1) % productImages.length)}
+              onClick={() =>
+                setActiveImage((activeImage + 1) % productImages.length)
+              }
             >
               <ChevronRight className="h-5 w-5" />
             </Button>
@@ -282,7 +312,9 @@ export default function ProductPage({ params }) {
             {productImages.map((img, index) => (
               <div
                 key={index}
-                className={`cursor-pointer border rounded-md overflow-hidden ${activeImage === index ? "ring-2 ring-primary" : ""}`}
+                className={`cursor-pointer border rounded-md overflow-hidden ${
+                  activeImage === index ? "ring-2 ring-primary" : ""
+                }`}
                 onClick={() => setActiveImage(index)}
               >
                 <Image
@@ -304,16 +336,24 @@ export default function ProductPage({ params }) {
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star
                   key={i}
-                  className={`h-4 w-4 ${i < Math.floor(product.rating) ? "fill-primary text-primary" : "fill-muted text-muted-foreground"}`}
+                  className={`h-4 w-4 ${
+                    i < Math.floor(product.rating)
+                      ? "fill-primary text-primary"
+                      : "fill-muted text-muted-foreground"
+                  }`}
                 />
               ))}
               <span className="ml-2 text-sm font-medium">{product.rating}</span>
             </div>
-            <span className="text-sm text-muted-foreground">({product.reviews} reviews)</span>
+            <span className="text-sm text-muted-foreground">
+              ({product.reviews} reviews)
+            </span>
           </div>
           <p className="text-muted-foreground mb-4">{product.category}</p>
 
-          <div className="text-3xl font-bold mb-6">₹{product.price.toLocaleString()}</div>
+          <div className="text-3xl font-bold mb-6">
+            ₹{product.price.toLocaleString()}
+          </div>
 
           <div className="mb-6">
             <p className="text-muted-foreground mb-4">{product.description}</p>
@@ -334,7 +374,9 @@ export default function ProductPage({ params }) {
                   type="number"
                   min="1"
                   value={quantity}
-                  onChange={(e) => handleQuantityChange(Number.parseInt(e.target.value))}
+                  onChange={(e) =>
+                    handleQuantityChange(Number.parseInt(e.target.value))
+                  }
                   className="w-16 rounded-none text-center"
                 />
                 <Button
@@ -354,12 +396,14 @@ export default function ProductPage({ params }) {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
-                  <DropdownMenuItem onClick={handleShare}>Copy Link</DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleShare}>
+                    Copy Link
+                  </DropdownMenuItem>
                   <DropdownMenuItem
                     onClick={() =>
                       window.open(
                         `https://wa.me/?text=Check out this amazing product: ${product.title} at PujaStore!`,
-                        "_blank",
+                        "_blank"
                       )
                     }
                   >
@@ -369,7 +413,7 @@ export default function ProductPage({ params }) {
                     onClick={() =>
                       window.open(
                         `https://www.facebook.com/sharer/sharer.php?u=https://pujastore.com/products/${product.id}`,
-                        "_blank",
+                        "_blank"
                       )
                     }
                   >
@@ -394,7 +438,11 @@ export default function ProductPage({ params }) {
                 )}
               </Button>
               <Button variant="outline" size="lg" onClick={handleWishlist}>
-                <Heart className={`mr-2 h-4 w-4 ${isWishlisted ? "fill-red-500 text-red-500" : ""}`} />
+                <Heart
+                  className={`mr-2 h-4 w-4 ${
+                    isWishlisted ? "fill-red-500 text-red-500" : ""
+                  }`}
+                />
                 {isWishlisted ? "Remove from Wishlist" : "Add to Wishlist"}
               </Button>
             </div>
@@ -405,21 +453,27 @@ export default function ProductPage({ params }) {
               <Truck className="h-5 w-5 text-muted-foreground mt-0.5" />
               <div>
                 <p className="font-medium">Free Shipping</p>
-                <p className="text-sm text-muted-foreground">On orders above ₹1000</p>
+                <p className="text-sm text-muted-foreground">
+                  On orders above ₹1000
+                </p>
               </div>
             </div>
             <div className="flex items-start gap-3">
               <Shield className="h-5 w-5 text-muted-foreground mt-0.5" />
               <div>
                 <p className="font-medium">Secure Payment</p>
-                <p className="text-sm text-muted-foreground">100% secure payment</p>
+                <p className="text-sm text-muted-foreground">
+                  100% secure payment
+                </p>
               </div>
             </div>
             <div className="flex items-start gap-3">
               <RotateCcw className="h-5 w-5 text-muted-foreground mt-0.5" />
               <div>
                 <p className="font-medium">Easy Returns</p>
-                <p className="text-sm text-muted-foreground">10 day return policy</p>
+                <p className="text-sm text-muted-foreground">
+                  10 day return policy
+                </p>
               </div>
             </div>
           </div>
@@ -434,8 +488,13 @@ export default function ProductPage({ params }) {
               <TabsContent value="details" className="p-4 border rounded-b-lg">
                 <p>{product.description}</p>
               </TabsContent>
-              <TabsContent value="specifications" className="p-4 border rounded-b-lg">
-                <pre className="whitespace-pre-wrap font-sans">{product.specifications}</pre>
+              <TabsContent
+                value="specifications"
+                className="p-4 border rounded-b-lg"
+              >
+                <pre className="whitespace-pre-wrap font-sans">
+                  {product.specifications}
+                </pre>
               </TabsContent>
               <TabsContent value="care" className="p-4 border rounded-b-lg">
                 <p>{product.care}</p>
@@ -456,11 +515,17 @@ export default function ProductPage({ params }) {
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star
                     key={i}
-                    className={`h-5 w-5 ${i < Math.floor(product.rating) ? "fill-primary text-primary" : "fill-muted text-muted-foreground"}`}
+                    className={`h-5 w-5 ${
+                      i < Math.floor(product.rating)
+                        ? "fill-primary text-primary"
+                        : "fill-muted text-muted-foreground"
+                    }`}
                   />
                 ))}
               </div>
-              <p className="text-sm text-muted-foreground mb-4">Based on {product.reviews} reviews</p>
+              <p className="text-sm text-muted-foreground mb-4">
+                Based on {product.reviews} reviews
+              </p>
               <Button>Write a Review</Button>
             </div>
           </div>
@@ -477,7 +542,11 @@ export default function ProductPage({ params }) {
                           {Array.from({ length: 5 }).map((_, i) => (
                             <Star
                               key={i}
-                              className={`h-4 w-4 ${i < review.rating ? "fill-primary text-primary" : "fill-muted text-muted-foreground"}`}
+                              className={`h-4 w-4 ${
+                                i < review.rating
+                                  ? "fill-primary text-primary"
+                                  : "fill-muted text-muted-foreground"
+                              }`}
                             />
                           ))}
                         </div>
@@ -488,10 +557,14 @@ export default function ProductPage({ params }) {
                         )}
                       </div>
                     </div>
-                    <div className="text-sm text-muted-foreground">{new Date(review.date).toLocaleDateString()}</div>
+                    <div className="text-sm text-muted-foreground">
+                      {new Date(review.date).toLocaleDateString()}
+                    </div>
                   </div>
                   <p className="text-sm mb-2">{review.comment}</p>
-                  <p className="text-sm text-muted-foreground">By {review.name}</p>
+                  <p className="text-sm text-muted-foreground">
+                    By {review.name}
+                  </p>
                 </div>
               ))}
 
@@ -520,6 +593,5 @@ export default function ProductPage({ params }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

@@ -1,31 +1,38 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function AboutPage() {
   return (
     <div className="container py-12">
       <div className="max-w-3xl mx-auto text-center mb-12">
         <h1 className="text-4xl font-bold mb-4">About PujaStore</h1>
-        <p className="text-xl text-muted-foreground">Connecting devotees with authentic puja essentials since 2010</p>
+        <p className="text-xl text-muted-foreground">
+          Connecting devotees with authentic puja essentials since 2010
+        </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
         <div>
           <h2 className="text-3xl font-bold mb-4">Our Story</h2>
           <p className="mb-4">
-            PujaStore began with a simple mission: to make authentic, high-quality puja items accessible to devotees
-            across India and around the world. Founded in 2010 by the Sharma family, who have been involved in
-            traditional craftsmanship for generations, our journey started with a small shop in Delhi.
+            PujaStore began with a simple mission: to make authentic,
+            high-quality puja items accessible to devotees across India and
+            around the world. Founded in 2010 by the Sharma family, who have
+            been involved in traditional craftsmanship for generations, our
+            journey started with a small shop in Delhi.
           </p>
           <p className="mb-4">
-            What began as a modest family business has now grown into one of India's most trusted online destinations
-            for puja essentials, spiritual artifacts, and religious gifts. Despite our growth, we remain committed to
-            our founding principles of authenticity, quality, and customer satisfaction.
+            What began as a modest family business has now grown into one of
+            India's most trusted online destinations for puja essentials,
+            spiritual artifacts, and religious gifts. Despite our growth, we
+            remain committed to our founding principles of authenticity,
+            quality, and customer satisfaction.
           </p>
           <p>
-            Today, we work directly with over 200 artisans and craftspeople across India, helping preserve traditional
-            art forms while bringing their beautiful creations to a global audience.
+            Today, we work directly with over 200 artisans and craftspeople
+            across India, helping preserve traditional art forms while bringing
+            their beautiful creations to a global audience.
           </p>
         </div>
         <div className="rounded-lg overflow-hidden">
@@ -69,7 +76,8 @@ export default function AboutPage() {
             </div>
             <h3 className="font-semibold mb-2">Authenticity</h3>
             <p className="text-sm text-muted-foreground">
-              We ensure all our products are authentic and crafted according to traditional methods and specifications.
+              We ensure all our products are authentic and crafted according to
+              traditional methods and specifications.
             </p>
           </div>
 
@@ -93,7 +101,8 @@ export default function AboutPage() {
             </div>
             <h3 className="font-semibold mb-2">Quality</h3>
             <p className="text-sm text-muted-foreground">
-              We never compromise on quality, carefully selecting each item to ensure it meets our high standards.
+              We never compromise on quality, carefully selecting each item to
+              ensure it meets our high standards.
             </p>
           </div>
 
@@ -116,7 +125,8 @@ export default function AboutPage() {
             </div>
             <h3 className="font-semibold mb-2">Respect</h3>
             <p className="text-sm text-muted-foreground">
-              We deeply respect the spiritual significance of our products and the diverse traditions of our customers.
+              We deeply respect the spiritual significance of our products and
+              the diverse traditions of our customers.
             </p>
           </div>
 
@@ -141,7 +151,8 @@ export default function AboutPage() {
             </div>
             <h3 className="font-semibold mb-2">Sustainability</h3>
             <p className="text-sm text-muted-foreground">
-              We are committed to sustainable practices, supporting artisans, and preserving traditional crafts.
+              We are committed to sustainable practices, supporting artisans,
+              and preserving traditional crafts.
             </p>
           </div>
         </div>
@@ -150,15 +161,37 @@ export default function AboutPage() {
       <div className="mb-16">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold mb-4">Meet Our Team</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">The dedicated people behind PujaStore</p>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            The dedicated people behind PujaStore
+          </p>
         </div>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {[
-            { name: "Rajesh Sharma", role: "Founder & CEO", image: "/placeholder.svg?height=300&width=300" },
-            { name: "Priya Sharma", role: "Creative Director", image: "/placeholder.svg?height=300&width=300" },
-            { name: "Vikram Patel", role: "Head of Operations", image: "/placeholder.svg?height=300&width=300" },
-            { name: "Ananya Gupta", role: "Customer Relations", image: "/placeholder.svg?height=300&width=300" },
+            {
+              name: "Rajesh Sharma",
+              role: "Founder & CEO",
+              image:
+                "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fHww",
+            },
+            {
+              name: "Priya Sharma",
+              role: "Creative Director",
+              image:
+                "https://plus.unsplash.com/premium_photo-1670282393309-70fd7f8eb1ef?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z2lybHxlbnwwfHwwfHx8MA%3D%3D",
+            },
+            {
+              name: "Vikram Patel",
+              role: "Head of Operations",
+              image:
+                "https://images.unsplash.com/photo-1581382575275-97901c2635b7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bWFufGVufDB8fDB8fHww",
+            },
+            {
+              name: "Ananya Gupta",
+              role: "Customer Relations",
+              image:
+                "https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D",
+            },
           ].map((member, index) => (
             <div key={index} className="text-center">
               <div className="rounded-full overflow-hidden w-32 h-32 mx-auto mb-4">
@@ -180,8 +213,8 @@ export default function AboutPage() {
       <div className="bg-primary text-primary-foreground rounded-lg p-8 text-center">
         <h2 className="text-3xl font-bold mb-4">Join Our Journey</h2>
         <p className="max-w-2xl mx-auto mb-6">
-          We're on a mission to bring authentic spiritual products to devotees worldwide. Join us in preserving
-          traditions and supporting artisans.
+          We're on a mission to bring authentic spiritual products to devotees
+          worldwide. Join us in preserving traditions and supporting artisans.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button asChild variant="secondary">
@@ -197,6 +230,5 @@ export default function AboutPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

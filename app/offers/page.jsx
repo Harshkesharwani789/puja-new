@@ -1,12 +1,18 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { ProductCard } from "@/components/product-card"
-import { Button } from "@/components/ui/button"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Badge } from "@/components/ui/badge"
+import { useState } from "react";
+import Link from "next/link";
+import { ProductCard } from "@/components/product-card";
+import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
 
 // This would normally come from a database
 const offerProducts = [
@@ -15,7 +21,8 @@ const offerProducts = [
     title: "Marble Lakshmi Idol",
     price: 1899,
     discountPrice: 1599,
-    image: "/placeholder.svg?height=300&width=300",
+    image:
+      "https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D",
     category: "Idols & Statues",
     rating: 4.8,
     badge: "15% OFF",
@@ -26,7 +33,8 @@ const offerProducts = [
     title: "Brass Pooja Thali",
     price: 1299,
     discountPrice: 999,
-    image: "/placeholder.svg?height=300&width=300",
+    image:
+      "https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D",
     category: "Pooja Thali Sets",
     rating: 4.5,
     badge: "SALE",
@@ -37,7 +45,8 @@ const offerProducts = [
     title: "Brass Oil Lamp",
     price: 899,
     discountPrice: 699,
-    image: "/placeholder.svg?height=300&width=300",
+    image:
+      "https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D",
     category: "Diyas & Lamps",
     rating: 4.7,
     badge: "22% OFF",
@@ -48,7 +57,8 @@ const offerProducts = [
     title: "Rangoli Colors Set",
     price: 349,
     discountPrice: 299,
-    image: "/placeholder.svg?height=300&width=300",
+    image:
+      "https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D",
     category: "Diwali Special",
     rating: 4.6,
     badge: "DEAL",
@@ -59,7 +69,8 @@ const offerProducts = [
     title: "Marble Ganesha with Peacock",
     price: 2499,
     discountPrice: 1999,
-    image: "/placeholder.svg?height=300&width=300",
+    image:
+      "https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D",
     category: "Idols & Statues",
     rating: 4.9,
     badge: "20% OFF",
@@ -70,7 +81,8 @@ const offerProducts = [
     title: "Meenakari Pooja Thali",
     price: 1699,
     discountPrice: 1499,
-    image: "/placeholder.svg?height=300&width=300",
+    image:
+      "https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D",
     category: "Pooja Thali Sets",
     rating: 4.7,
     badge: "OFFER",
@@ -81,7 +93,8 @@ const offerProducts = [
     title: "Copper Puja Lamp",
     price: 1199,
     discountPrice: 999,
-    image: "/placeholder.svg?height=300&width=300",
+    image:
+      "https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D",
     category: "Diyas & Lamps",
     rating: 4.7,
     badge: "DEAL",
@@ -92,7 +105,8 @@ const offerProducts = [
     title: "Premium Dhoop Sticks",
     price: 299,
     discountPrice: 249,
-    image: "/placeholder.svg?height=300&width=300",
+    image:
+      "https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D",
     category: "Incense & Dhoop",
     rating: 4.7,
     badge: "BEST SELLER",
@@ -103,7 +117,8 @@ const offerProducts = [
     title: "Diwali Gift Hamper",
     price: 1499,
     discountPrice: 1299,
-    image: "/placeholder.svg?height=300&width=300",
+    image:
+      "https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D",
     category: "Diwali Special",
     rating: 4.8,
     badge: "POPULAR",
@@ -114,7 +129,8 @@ const offerProducts = [
     title: "Silver Plated Ganesh Lakshmi Set",
     price: 2999,
     discountPrice: 2499,
-    image: "/placeholder.svg?height=300&width=300",
+    image:
+      "https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D",
     category: "Idols & Statues",
     rating: 4.9,
     badge: "FESTIVE OFFER",
@@ -125,7 +141,8 @@ const offerProducts = [
     title: "Brass Aarti Lamp",
     price: 1299,
     discountPrice: 999,
-    image: "/placeholder.svg?height=300&width=300",
+    image:
+      "https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D",
     category: "Diyas & Lamps",
     rating: 4.6,
     badge: "LIMITED TIME",
@@ -136,7 +153,8 @@ const offerProducts = [
     title: "Sandalwood Prayer Beads",
     price: 799,
     discountPrice: 599,
-    image: "/placeholder.svg?height=300&width=300",
+    image:
+      "https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D",
     category: "Spiritual Accessories",
     rating: 4.7,
     badge: "25% OFF",
@@ -149,7 +167,8 @@ const offerProducts = [
     title: "Complete Puja Essentials Kit",
     price: 3999,
     discountPrice: 2999,
-    image: "/placeholder.svg?height=300&width=300",
+    image:
+      "https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D",
     category: "Puja Kits",
     rating: 4.9,
     badge: "BUNDLE OFFER",
@@ -160,7 +179,8 @@ const offerProducts = [
     title: "Diwali Decoration Set",
     price: 2499,
     discountPrice: 1999,
-    image: "/placeholder.svg?height=300&width=300",
+    image:
+      "https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D",
     category: "Diwali Special",
     rating: 4.8,
     badge: "BUNDLE OFFER",
@@ -171,7 +191,8 @@ const offerProducts = [
     title: "Navratri Special Kit",
     price: 1899,
     discountPrice: 1599,
-    image: "/placeholder.svg?height=300&width=300",
+    image:
+      "https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D",
     category: "Festival Kits",
     rating: 4.7,
     badge: "BUNDLE OFFER",
@@ -184,7 +205,8 @@ const offerProducts = [
     title: "Brass Diya Set (Buy 1 Get 1)",
     price: 1299,
     discountPrice: 1299,
-    image: "/placeholder.svg?height=300&width=300",
+    image:
+      "https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D",
     category: "Diyas & Lamps",
     rating: 4.6,
     badge: "BOGO",
@@ -195,7 +217,8 @@ const offerProducts = [
     title: "Incense Sticks Pack (Buy 1 Get 1)",
     price: 399,
     discountPrice: 399,
-    image: "/placeholder.svg?height=300&width=300",
+    image:
+      "https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D",
     category: "Incense & Dhoop",
     rating: 4.5,
     badge: "BOGO",
@@ -206,58 +229,75 @@ const offerProducts = [
     title: "Rudraksha Mala (Buy 1 Get 1)",
     price: 899,
     discountPrice: 899,
-    image: "/placeholder.svg?height=300&width=300",
+    image:
+      "https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D",
     category: "Spiritual Jewelry",
     rating: 4.8,
     badge: "BOGO",
     offerType: "bogo",
   },
-]
+];
 
 export default function OffersPage() {
-  const [sortBy, setSortBy] = useState("featured")
-  const [currentTab, setCurrentTab] = useState("all")
+  const [sortBy, setSortBy] = useState("featured");
+  const [currentTab, setCurrentTab] = useState("all");
 
   // Filter products based on current tab
   const filteredProducts =
-    currentTab === "all" ? offerProducts : offerProducts.filter((product) => product.offerType === currentTab)
+    currentTab === "all"
+      ? offerProducts
+      : offerProducts.filter((product) => product.offerType === currentTab);
 
   // Sort products
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     if (sortBy === "price-low-high") {
-      return (a.discountPrice || a.price) - (b.discountPrice || b.price)
+      return (a.discountPrice || a.price) - (b.discountPrice || b.price);
     } else if (sortBy === "price-high-low") {
-      return (b.discountPrice || b.price) - (a.discountPrice || a.price)
+      return (b.discountPrice || b.price) - (a.discountPrice || a.price);
     } else if (sortBy === "discount") {
-      const discountA = a.price - (a.discountPrice || a.price)
-      const discountB = b.price - (b.discountPrice || b.price)
-      return discountB - discountA
+      const discountA = a.price - (a.discountPrice || a.price);
+      const discountB = b.price - (b.discountPrice || b.price);
+      return discountB - discountA;
     }
-    return 0 // Default to featured order
-  })
+    return 0; // Default to featured order
+  });
 
   return (
     <div className="container py-12">
       <div className="relative mb-8">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/5 rounded-lg"></div>
         <div className="relative py-8 px-6 md:px-10">
-          <h1 className="text-3xl md:text-4xl font-bold mb-2">Special Offers</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-2">
+            Special Offers
+          </h1>
           <p className="text-muted-foreground max-w-2xl">
-            Explore our exclusive deals, discounts, and limited-time offers on a wide range of puja essentials and
-            spiritual products.
+            Explore our exclusive deals, discounts, and limited-time offers on a
+            wide range of puja essentials and spiritual products.
           </p>
 
           <div className="mt-6 flex flex-wrap gap-2">
-            <Badge variant="outline" className="bg-primary/10 hover:bg-primary/20 transition-colors">
+            <Badge
+              variant="outline"
+              className="bg-primary/10 hover:bg-primary/20 transition-colors"
+            >
               Up to 25% OFF
             </Badge>
-            <Badge variant="outline" className="bg-primary/10 hover:bg-primary/20 transition-colors">
+            <Badge
+              variant="outline"
+              className="bg-primary/10 hover:bg-primary/20 transition-colors"
+            >
               Buy One Get One Free
             </Badge>
-            <Badge variant="outline" className="bg-primary/10 hover:bg-primary/20 transition-colors">
+            <Badge
+              variant="outline"
+              className="bg-primary/10 hover:bg-primary/20 transition-colors"
+            >
               Bundle Deals
             </Badge>
-            <Badge variant="outline" className="bg-primary/10 hover:bg-primary/20 transition-colors">
+            <Badge
+              variant="outline"
+              className="bg-primary/10 hover:bg-primary/20 transition-colors"
+            >
               Free Shipping
             </Badge>
           </div>
@@ -265,7 +305,11 @@ export default function OffersPage() {
       </div>
 
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
-        <Tabs defaultValue="all" className="w-full md:w-auto" onValueChange={setCurrentTab}>
+        <Tabs
+          defaultValue="all"
+          className="w-full md:w-auto"
+          onValueChange={setCurrentTab}
+        >
           <TabsList className="grid grid-cols-4 w-full md:w-auto">
             <TabsTrigger value="all">All Offers</TabsTrigger>
             <TabsTrigger value="discount">Discounts</TabsTrigger>
@@ -309,7 +353,8 @@ export default function OffersPage() {
         <div className="text-center mb-6">
           <h2 className="text-2xl font-bold mb-2">Limited Time Offers</h2>
           <p className="text-muted-foreground">
-            These special deals are only available for a limited time. Don't miss out!
+            These special deals are only available for a limited time. Don't
+            miss out!
           </p>
         </div>
 
@@ -406,6 +451,5 @@ export default function OffersPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

@@ -1,41 +1,48 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Trash2, ArrowLeft, ShoppingBag, CreditCard, Truck } from "lucide-react"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import {
+  Trash2,
+  ArrowLeft,
+  ShoppingBag,
+  CreditCard,
+  Truck,
+} from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { useCart } from "@/hooks/use-cart"
-import { useToast } from "@/hooks/use-toast"
-import { Separator } from "@/components/ui/separator"
-import { ProductCard } from "@/components/product-card"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useCart } from "@/hooks/use-cart";
+import { useToast } from "@/hooks/use-toast";
+import { Separator } from "@/components/ui/separator";
+import { ProductCard } from "@/components/product-card";
 
 export default function CartPage() {
-  const { items, removeFromCart, updateQuantity, getTotal, clearCart } = useCart()
-  const { toast } = useToast()
-  const [mounted, setMounted] = useState(false)
-  const [couponCode, setCouponCode] = useState("")
-  const [couponApplied, setCouponApplied] = useState(false)
-  const [discount, setDiscount] = useState(0)
+  const { items, removeFromCart, updateQuantity, getTotal, clearCart } =
+    useCart();
+  const { toast } = useToast();
+  const [mounted, setMounted] = useState(false);
+  const [couponCode, setCouponCode] = useState("");
+  const [couponApplied, setCouponApplied] = useState(false);
+  const [discount, setDiscount] = useState(0);
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   const handleQuantityChange = (id, quantity) => {
-    if (quantity < 1) return
-    updateQuantity(id, quantity)
-  }
+    if (quantity < 1) return;
+    updateQuantity(id, quantity);
+  };
 
   const handleRemove = (id, title) => {
-    removeFromCart(id)
+    removeFromCart(id);
     toast({
       title: "Item removed",
       description: `${title} has been removed from your cart.`,
-    })
-  }
+    });
+  };
 
   const handleApplyCoupon = () => {
     if (!couponCode) {
@@ -43,41 +50,41 @@ export default function CartPage() {
         title: "Error",
         description: "Please enter a coupon code",
         variant: "destructive",
-      })
-      return
+      });
+      return;
     }
 
     // Simulate coupon validation
     if (couponCode.toUpperCase() === "DIWALI20") {
-      const discountAmount = Math.round(getTotal() * 0.2)
-      setDiscount(discountAmount)
-      setCouponApplied(true)
+      const discountAmount = Math.round(getTotal() * 0.2);
+      setDiscount(discountAmount);
+      setCouponApplied(true);
       toast({
         title: "Coupon applied",
         description: "20% discount has been applied to your order.",
-      })
+      });
     } else {
       toast({
         title: "Invalid coupon",
         description: "The coupon code you entered is invalid or expired.",
         variant: "destructive",
-      })
+      });
     }
-  }
+  };
 
   const handleCheckout = () => {
     toast({
       title: "Checkout initiated",
       description: "Redirecting to payment gateway...",
-    })
+    });
     // In a real app, this would redirect to checkout
     setTimeout(() => {
-      window.location.href = "/checkout"
-    }, 1500)
-  }
+      window.location.href = "/checkout";
+    }, 1500);
+  };
 
   if (!mounted) {
-    return null // Prevent hydration errors
+    return null; // Prevent hydration errors
   }
 
   if (items.length === 0) {
@@ -87,7 +94,9 @@ export default function CartPage() {
         <div className="flex flex-col items-center justify-center py-12 text-center">
           <ShoppingBag className="h-16 w-16 text-muted-foreground mb-4" />
           <h2 className="text-2xl font-semibold mb-2">Your cart is empty</h2>
-          <p className="text-muted-foreground mb-6">Looks like you haven't added anything to your cart yet.</p>
+          <p className="text-muted-foreground mb-6">
+            Looks like you haven't added anything to your cart yet.
+          </p>
           <Button asChild>
             <Link href="/categories">
               <ArrowLeft className="mr-2 h-4 w-4" />
@@ -96,7 +105,7 @@ export default function CartPage() {
           </Button>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -109,7 +118,10 @@ export default function CartPage() {
             <div className="p-6">
               <div className="grid gap-6">
                 {items.map((item) => (
-                  <div key={item.id} className="grid gap-4 grid-cols-[80px_1fr] sm:grid-cols-[120px_1fr]">
+                  <div
+                    key={item.id}
+                    className="grid gap-4 grid-cols-[80px_1fr] sm:grid-cols-[120px_1fr]"
+                  >
                     <div className="aspect-square overflow-hidden rounded-md">
                       <Image
                         src={item.image || "/placeholder.svg"}
@@ -123,9 +135,15 @@ export default function CartPage() {
                       <div className="flex justify-between">
                         <div>
                           <h3 className="font-medium">{item.title}</h3>
-                          <p className="text-sm text-muted-foreground">{item.category}</p>
+                          <p className="text-sm text-muted-foreground">
+                            {item.category}
+                          </p>
                         </div>
-                        <Button variant="ghost" size="icon" onClick={() => handleRemove(item.id, item.title)}>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          onClick={() => handleRemove(item.id, item.title)}
+                        >
                           <Trash2 className="h-4 w-4" />
                           <span className="sr-only">Remove</span>
                         </Button>
@@ -136,7 +154,9 @@ export default function CartPage() {
                             variant="outline"
                             size="icon"
                             className="h-8 w-8"
-                            onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
+                            onClick={() =>
+                              handleQuantityChange(item.id, item.quantity - 1)
+                            }
                           >
                             -
                           </Button>
@@ -144,19 +164,28 @@ export default function CartPage() {
                             type="number"
                             min="1"
                             value={item.quantity}
-                            onChange={(e) => handleQuantityChange(item.id, Number.parseInt(e.target.value))}
+                            onChange={(e) =>
+                              handleQuantityChange(
+                                item.id,
+                                Number.parseInt(e.target.value)
+                              )
+                            }
                             className="h-8 w-16 text-center"
                           />
                           <Button
                             variant="outline"
                             size="icon"
                             className="h-8 w-8"
-                            onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
+                            onClick={() =>
+                              handleQuantityChange(item.id, item.quantity + 1)
+                            }
                           >
                             +
                           </Button>
                         </div>
-                        <div className="font-medium">₹{(item.price * item.quantity).toLocaleString()}</div>
+                        <div className="font-medium">
+                          ₹{(item.price * item.quantity).toLocaleString()}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -184,7 +213,7 @@ export default function CartPage() {
                 id="25"
                 title="Silver Nandi Idol"
                 price={1499}
-                image="/placeholder.svg?height=300&width=300"
+                image="https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D"
                 category="Idols & Statues"
                 rating={4.7}
               />
@@ -192,7 +221,7 @@ export default function CartPage() {
                 id="26"
                 title="Brass Bell"
                 price={699}
-                image="/placeholder.svg?height=300&width=300"
+                image="https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D"
                 category="Puja Accessories"
                 rating={4.8}
               />
@@ -200,7 +229,7 @@ export default function CartPage() {
                 id="27"
                 title="Copper Kalash"
                 price={899}
-                image="/placeholder.svg?height=300&width=300"
+                image="https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D"
                 category="Puja Accessories"
                 rating={4.6}
               />
@@ -239,7 +268,12 @@ export default function CartPage() {
 
               <div className="flex justify-between font-semibold text-lg">
                 <span>Total</span>
-                <span>₹{Math.round(getTotal() * 1.18 - discount + (getTotal() > 1000 ? 0 : 99)).toLocaleString()}</span>
+                <span>
+                  ₹
+                  {Math.round(
+                    getTotal() * 1.18 - discount + (getTotal() > 1000 ? 0 : 99)
+                  ).toLocaleString()}
+                </span>
               </div>
 
               <div className="pt-4">
@@ -250,7 +284,11 @@ export default function CartPage() {
                     onChange={(e) => setCouponCode(e.target.value)}
                     disabled={couponApplied}
                   />
-                  <Button variant="outline" onClick={handleApplyCoupon} disabled={couponApplied}>
+                  <Button
+                    variant="outline"
+                    onClick={handleApplyCoupon}
+                    disabled={couponApplied}
+                  >
                     Apply
                   </Button>
                 </div>
@@ -261,7 +299,11 @@ export default function CartPage() {
                   </div>
                 )}
 
-                <Button className="w-full mb-3" size="lg" onClick={handleCheckout}>
+                <Button
+                  className="w-full mb-3"
+                  size="lg"
+                  onClick={handleCheckout}
+                >
                   <CreditCard className="mr-2 h-4 w-4" />
                   Proceed to Checkout
                 </Button>
@@ -279,6 +321,5 @@ export default function CartPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

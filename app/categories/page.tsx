@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { CategoryCard } from "@/components/category-card"
+import Link from "next/link";
+import { CategoryCard } from "@/components/category-card";
 
 export default function CategoriesPage() {
   return (
@@ -16,28 +16,47 @@ export default function CategoriesPage() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <CategoryCard title="Idols & Statues" image="/placeholder.svg?height=300&width=300" href="/categories/idols" />
+        <CategoryCard
+          title="Idols & Statues"
+          image="https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D"
+          href="/categories/idols"
+        />
         <CategoryCard
           title="Pooja Thali Sets"
-          image="/placeholder.svg?height=300&width=300"
+          image="https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D"
           href="/categories/pooja-thali"
         />
-        <CategoryCard title="Diyas & Lamps" image="/placeholder.svg?height=300&width=300" href="/categories/diyas" />
+        <CategoryCard
+          title="Diyas & Lamps"
+          image="https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D"
+          href="/categories/diyas"
+        />
         <CategoryCard
           title="Incense & Dhoop"
-          image="/placeholder.svg?height=300&width=300"
+          image="https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D"
           href="/categories/incense"
         />
-        <CategoryCard title="Diwali Special" image="/placeholder.svg?height=300&width=300" href="/categories/diwali" />
-        <CategoryCard title="Brass Items" image="/placeholder.svg?height=300&width=300" href="/categories/brass" />
-        <CategoryCard title="Silver Items" image="/placeholder.svg?height=300&width=300" href="/categories/silver" />
+        <CategoryCard
+          title="Diwali Special"
+          image="https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D"
+          href="/categories/diwali"
+        />
+        <CategoryCard
+          title="Brass Items"
+          image="https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D"
+          href="/categories/brass"
+        />
+        <CategoryCard
+          title="Silver Items"
+          image="https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D"
+          href="/categories/silver"
+        />
         <CategoryCard
           title="Puja Accessories"
-          image="/placeholder.svg?height=300&width=300"
+          image="https://plus.unsplash.com/premium_photo-1676093698112-c35300feada7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYmxlJTIwbGFrc2htaSUyMGlkb2x8ZW58MHx8MHx8fDA%3D"
           href="/categories/accessories"
         />
       </div>
     </div>
-  )
+  );
 }
-
