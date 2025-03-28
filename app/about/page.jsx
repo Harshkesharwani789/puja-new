@@ -37,7 +37,7 @@ export default function AboutPage() {
         </div>
         <div className="rounded-lg overflow-hidden">
           <Image
-            src="/placeholder.svg?height=600&width=800"
+            src="https://media.istockphoto.com/id/1364793732/photo/lord-vishnu-idol.webp?a=1&b=1&s=612x612&w=0&k=20&c=tQZYNa3UTrDYFlC8cYW3Mc3USHYQy9FYjtuFgZungWI="
             alt="Our store"
             width={800}
             height={600}

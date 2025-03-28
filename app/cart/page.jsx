@@ -132,9 +132,11 @@ export default function CartPage() {
                       />
                     </div>
                     <div className="grid gap-2">
-                      <div className="flex justify-between">
+                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
                         <div>
-                          <h3 className="font-medium">{item.title}</h3>
+                          <h3 className="font-medium ine-clamp-1">
+                            {item.title}
+                          </h3>
                           <p className="text-sm text-muted-foreground">
                             {item.category}
                           </p>
@@ -143,6 +145,7 @@ export default function CartPage() {
                           variant="ghost"
                           size="icon"
                           onClick={() => handleRemove(item.id, item.title)}
+                          className="self-end sm:self-auto mt-1 sm:mt-0"
                         >
                           <Trash2 className="h-4 w-4" />
                           <span className="sr-only">Remove</span>

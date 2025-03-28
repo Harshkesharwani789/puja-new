@@ -160,10 +160,11 @@ export default function ProductPage({ params }) {
 
   // Product images (in a real app, these would come from the database)
   const productImages = [
-    product?.image || "/placeholder.svg?height=600&width=600",
-    "/placeholder.svg?height=600&width=600",
-    "/placeholder.svg?height=600&width=600",
-    "/placeholder.svg?height=600&width=600",
+    product?.image ||
+      "https://media.istockphoto.com/id/954407924/photo/puja-to-lord-ganesh-during-the-festival-of-guru-purnima.webp?a=1&b=1&s=612x612&w=0&k=20&c=KwzgrZUlyNZkEuxf31sra4t8rCBINpufN1_YUSXJMVA=",
+    "https://media.istockphoto.com/id/954407924/photo/puja-to-lord-ganesh-during-the-festival-of-guru-purnima.webp?a=1&b=1&s=612x612&w=0&k=20&c=KwzgrZUlyNZkEuxf31sra4t8rCBINpufN1_YUSXJMVA=",
+    "https://media.istockphoto.com/id/954407924/photo/puja-to-lord-ganesh-during-the-festival-of-guru-purnima.webp?a=1&b=1&s=612x612&w=0&k=20&c=KwzgrZUlyNZkEuxf31sra4t8rCBINpufN1_YUSXJMVA=",
+    "https://media.istockphoto.com/id/954407924/photo/puja-to-lord-ganesh-during-the-festival-of-guru-purnima.webp?a=1&b=1&s=612x612&w=0&k=20&c=KwzgrZUlyNZkEuxf31sra4t8rCBINpufN1_YUSXJMVA=",
   ];
 
   useEffect(() => {
@@ -322,7 +323,7 @@ export default function ProductPage({ params }) {
                   alt={`${product.title} - view ${index + 1}`}
                   width={100}
                   height={100}
-                  className="w-20 h-20 object-cover"
+                  className="w-16 h-16 sm:w-20 sm:h-20 object-cover"
                 />
               </div>
             ))}
@@ -444,6 +445,12 @@ export default function ProductPage({ params }) {
                   }`}
                 />
                 {isWishlisted ? "Remove from Wishlist" : "Add to Wishlist"}
+                <span className="hidden sm:inline">
+                  {isWishlisted ? "Remove from Wishlist" : "Add to Wishlist"}
+                </span>
+                <span className="inline sm:hidden">
+                  {isWishlisted ? "Remove" : "Wishlist"}
+                </span>
               </Button>
             </div>
           </div>

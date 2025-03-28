@@ -45,7 +45,7 @@ export default function Home() {
 
             <Link href="/" className="flex items-center gap-2">
               <Image
-                src="/placeholder.svg?height=32&width=32"
+                src="https://media.istockphoto.com/id/1321257574/photo/chakra-muladhara-red-shining-yoga-symbol-om-sign-sacral-icon.webp?a=1&b=1&s=612x612&w=0&k=20&c=Nb_6BzYewiarng649MY2GIUO36RWAZf79rm7jaAWzzg="
                 alt="Logo"
                 width={32}
                 height={32}
@@ -174,7 +174,7 @@ export default function Home() {
               Limited time deals on premium puja items
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
             <ProductCard
               id="5"
               title="Marble Lakshmi Idol"
@@ -235,7 +235,7 @@ export default function Home() {
             <div className="group relative overflow-hidden rounded-lg border hover:shadow-md transition-shadow">
               <div className="absolute inset-0">
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
+                  src="https://images.unsplash.com/photo-1636226942649-ee15d2a7ce04?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cG9vamElMjByZWxhdGVkJTIwZGl3YWxpJTIwY29sbGVjdGlvbnxlbnwwfHwwfHx8MA%3D%3D"
                   alt="Diwali Collection"
                   width={600}
                   height={400}
@@ -260,7 +260,7 @@ export default function Home() {
             <div className="group relative overflow-hidden rounded-lg border hover:shadow-md transition-shadow">
               <div className="absolute inset-0">
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
+                  src="https://media.istockphoto.com/id/1036787948/photo/lord-ganesha-ganesha-festival.webp?a=1&b=1&s=612x612&w=0&k=20&c=le-zTEpLKBdUdKOEkWNVYpElHiko6TR3vbnq-IX3_jU="
                   alt="Premium Idols"
                   width={600}
                   height={400}
@@ -294,7 +294,7 @@ export default function Home() {
               <ChevronRight className="h-4 w-4 ml-1" />
             </Link>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
             <ProductCard
               id="1"
               title="Brass Ganesh Idol"
@@ -377,7 +377,7 @@ export default function Home() {
               The latest additions to our collection
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
             <ProductCard
               id="21"
               title="Crystal Shivling"
@@ -424,25 +424,25 @@ export default function Home() {
               Trusted by devotees across the country
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
             <TestimonialCard
               name="Priya Sharma"
               location="Delhi"
-              image="/placeholder.svg?height=100&width=100"
+              image="https://images.unsplash.com/photo-1602233158242-3ba0ac4d2167?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z2lybHxlbnwwfHwwfHx8MA%3D%3D"
               rating={5}
               text="The quality of the Ganesh idol I purchased exceeded my expectations. The craftsmanship is exquisite and the delivery was prompt. Will definitely shop again!"
             />
             <TestimonialCard
               name="Rajesh Patel"
               location="Mumbai"
-              image="/placeholder.svg?height=100&width=100"
+              image="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fHww"
               rating={4}
               text="I ordered a complete pooja thali set for my mother's birthday. She was delighted with the quality and design. The packaging was also very secure."
             />
             <TestimonialCard
               name="Ananya Gupta"
               location="Bangalore"
-              image="/placeholder.svg?height=100&width=100"
+              image="https://images.unsplash.com/photo-1602233158242-3ba0ac4d2167?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z2lybHxlbnwwfHwwfHx8MA%3D%3D"
               rating={5}
               text="The incense sticks have a beautiful, authentic fragrance. I've been ordering regularly for the past 6 months and the quality has been consistently excellent."
             />
