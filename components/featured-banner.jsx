@@ -7,7 +7,7 @@ export function FeaturedBanner() {
     <div className="relative overflow-hidden rounded-lg">
       <div className="absolute inset-0">
         <Image
-          src="/placeholder.svg?height=500&width=1200"
+          src="https://plus.unsplash.com/premium_photo-1671498256164-fe6dc7d4a473?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHBvb2phJTIwYmFubmVyJTIwZm9yJTIwd2Vic2l0ZXxlbnwwfHwwfHx8MA%3D%3D"
           alt="Featured banner"
           width={1200}
           height={500}
